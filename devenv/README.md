@@ -32,10 +32,7 @@ docker-compose down
 
 Rebuild app container for new requirements
 ```bash
-docker-compose stop
-docker build -t wvcapp .
 docker-compose up -d --no-deps --build app
-docker-compose start
 ```
 
 ### Scripts for running services

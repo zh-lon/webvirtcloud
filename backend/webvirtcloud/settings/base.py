@@ -21,8 +21,9 @@ ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 
-# Application definition
+AUTH_USER_MODEL = 'user.User'
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,7 +35,6 @@ INSTALLED_APPS = [
 ]
 
 # Project application
-
 INSTALLED_APPS += [
     'user',
     'region',
@@ -43,11 +43,7 @@ INSTALLED_APPS += [
 ]
 
 # Third party application
-
 INSTALLED_APPS += [
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
