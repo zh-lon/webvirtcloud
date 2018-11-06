@@ -77,6 +77,9 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
 
+    def get_username(self):
+        return self.email
+
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
 

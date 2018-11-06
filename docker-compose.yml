@@ -21,6 +21,8 @@ services:
        - mariadb
    mariadb:
      image: mariadb:latest
+     volumes:
+     - ./dbdata:/var/lib/mysql
      ports:
      - "3306:3306"
      environment:

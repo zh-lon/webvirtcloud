@@ -5,6 +5,7 @@
 .vagrant
 .DS_*
 __pycache__
+dbdata
 venv
 node_modules
 db.sqlite3

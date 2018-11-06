@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 # Project application
 INSTALLED_APPS += [
     'user',
+    'apiv1',
     'region',
     'flavor',
     'compute',
@@ -44,11 +45,18 @@ INSTALLED_APPS += [
 
 # Third party application
 INSTALLED_APPS += [
-    'rest_framework',
-    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
     'rest_auth',
     'rest_auth.registration',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -56,13 +64,14 @@ AUTHENTICATION_BACKENDS = (
 
 REST_SESSION_LOGIN = True
 
-REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'user.serializers.SignUpView',
-}
+# REST_AUTH_REGISTER_SERIALIZERS = {
+#     'REGISTER_SERIALIZER': 'user.serializers.SignUpView',
+#     'REGISTER_SERIALIZER': 'rest_auth.registration.serializers.RegisterSerializer',
+# }
 
-REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER':  'user.serializers.SignInView',
-}
+# REST_AUTH_SERIALIZERS = {
+#     'LOGIN_SERIALIZER':  'user.serializers.SignInView',
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -102,14 +111,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'webvirtcloud',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhsot',
+        'USER': os.environ.get('DB_USER', 'root'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'root'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        }
+        },
     }
 }
+
+# Celery settings
+CELERY_BROKER_URL = os.environ.get('BROKER_URL', 'amqp://guest:guest@localhost:5672')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

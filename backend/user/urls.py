@@ -1,8 +1,7 @@
-from django.conf.urls import url
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.authtoken.views import obtain_auth_token
+from django.urls import include, path
 
+from .views import UserListView
 
 urlpatterns = [
-    url(r'^account/login/?$', csrf_exempt(obtain_auth_token))
+    path('', UserListView.as_view()),
 ]

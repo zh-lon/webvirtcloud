@@ -7,7 +7,7 @@ from django.conf import settings
 from django.views.decorators.cache import never_cache
 
 urlpatterns = [
-    path('user/', include('user.urls')),
+    path('api/v1/', include('apiv1.urls')),
     path('admin/', admin.site.urls),
 ]
 
