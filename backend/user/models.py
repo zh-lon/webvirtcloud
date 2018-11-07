@@ -65,14 +65,6 @@ class User(AbstractBaseUser):
         auto_now_add=True,
     )
 
-    is_verified = models.BooleanField(
-        default=False,
-    )
-
-    is_activated = models.BooleanField(
-        default=False
-    )
-
     objects = UserManager()
 
     USERNAME_FIELD = 'email'

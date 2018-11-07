@@ -66,12 +66,13 @@ REST_AUTH_REGISTER_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'user.serializers.RegisterSerializer'
 }
 
-# REST_AUTH_SERIALIZERS = {
-#     'LOGIN_SERIALIZER':  'user.serializers.SignInView',
-# }
+REST_AUTH_SERIALIZERS = {
+    'LOGIN_SERIALIZER':  'user.serializers.LoginSerializer',
+}
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 MIDDLEWARE = [
