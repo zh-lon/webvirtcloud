@@ -58,20 +58,21 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REST_SESSION_LOGIN = True
 
-# REST_AUTH_REGISTER_SERIALIZERS = {
-#     'REGISTER_SERIALIZER': 'user.serializers.SignUpView',
-#     'REGISTER_SERIALIZER': 'rest_auth.registration.serializers.RegisterSerializer',
-# }
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'user.serializers.RegisterSerializer'
+}
 
 # REST_AUTH_SERIALIZERS = {
 #     'LOGIN_SERIALIZER':  'user.serializers.SignInView',
 # }
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
