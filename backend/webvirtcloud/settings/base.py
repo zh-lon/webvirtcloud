@@ -41,6 +41,7 @@ INSTALLED_APPS += [
     'region',
     'flavor',
     'compute',
+    'network',
 ]
 
 # Third party application
