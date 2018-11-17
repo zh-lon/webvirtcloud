@@ -1,0 +1,17 @@
+[
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$20000$5KpmDOsZ7ndY$Kqa4b61EY9pDhIvPNvu/zTCWQdOP3x32t1RG/pvJkDM=",
+      "last_login": "2018-11-17T14:14:22.803Z",
+      "email": "admin@webvirtcloud.com",
+      "hash": "",
+      "is_admin": false,
+      "is_active": true,
+      "first_name": "",
+      "last_name": "",
+      "date_joined": "2018-11-17T14:14:22.785Z"
+    }
+  }
+]

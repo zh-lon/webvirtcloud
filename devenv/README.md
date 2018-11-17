@@ -36,19 +36,9 @@ docker-compose up -d --no-deps --build backend
 ```
 
 ### Scripts for running services
-Run django dev server
-```bash
-devenv/run_django.sh
-```
-
-Run celery dev server
-```bash
-devenv/run_celery.sh
-```
-
 Run stmpd dev server
 ```bash
-devenv/run_smtpd.sh
+devenv/docker/exec_backend_smtpd.sh
 ```
 
 ### Vagrant
