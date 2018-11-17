@@ -32,7 +32,7 @@ docker-compose down
 
 Rebuild app container for new requirements
 ```bash
-docker-compose up -d --no-deps --build app
+docker-compose up -d --no-deps --build backend
 ```
 
 ### Scripts for running services

@@ -1,15 +1,14 @@
 version: '3.7'
 
 services:
-   app:
+   backend:
      build: .
-     image: wvcapp:latest
+     image: webvirtcloud:latest
      ports:
        - "8000:8000"
-       - "6080:6080"
      volumes:
      - ./backend:/app
-     command: python3 -m http.server 9000 --bind 127.0.0.1
+     command: python3 manage.py runserver 0:8000
      environment:
        DB_HOST: mariadb
        DB_USER: root

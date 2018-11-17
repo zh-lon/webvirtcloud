@@ -7,5 +7,6 @@
 __pycache__
 dbdata
 venv
+Vagrantfile
 node_modules
 db.sqlite3
