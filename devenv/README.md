@@ -12,7 +12,7 @@ Build and run docker-compose (run only first time)
 docker-compose up -d
 docker exec -it $(docker-compose ps -q mariadb) \
        mysql -uroot -proot -e "CREATE DATABASE webvirtcloud CHARACTER SET utf8 COLLATE utf8_general_ci"
-docker exec -it $(docker-compose ps -q app) python3.6 manage.py migrate
+docker exec -it $(docker-compose ps -q backend) python3.6 manage.py migrate
 ```
 
 Stop docker-compose
